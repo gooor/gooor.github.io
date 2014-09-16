@@ -1,0 +1,18 @@
+.header {
+    height: 40px;
+    background: #5bc0de;
+    margin: 0;
+}
+.header-title {
+    color: #fff;
+    line-height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.description-box {
+    background: #eee;
+    padding-bottom: 40px;
+    padding-top: 20px;
+    margin-top: 0px;
+}

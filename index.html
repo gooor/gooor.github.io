@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="sampleApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,88 +9,170 @@
 
     <title>gooor.github,io</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css" type="text/css"/>
-    <link rel="stylesheet" href="/bower_components/go.grid/build/go.grid.min.css" type="text/css"/>
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="bower_components/go.grid/build/go.grid.min.css" type="text/css"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
-    <script type="text/javascript" src="/bower_components/angularLocalStorage/src/angularLocalStorage.js"></script>
-    <script type="text/javascript" src="/bower_components/angular-cookies/angular-cookies.js"></script>
-    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/bower_components/go.grid/build/go.grid.js"></script>
-    <script type="text/javascript" src=""></script>
-    <script type="text/javascript" src="sample.js"></script>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angularLocalStorage/src/angularLocalStorage.js"></script>
+    <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/js-xlsx/dist/xlsx.full.min.js"></script>
+    <script type="text/javascript" src="bower_components/go.grid/build/go.grid.js"></script>
+    <script type="text/javascript" src="bower_components/go.grid/example/FileSaver.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </head>
 
-<body>
+<body ng-controller="SampleController">
 
-<div class="container">
-    <div class="header">
-        <ul class="nav nav-pills pull-right">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">Project name</h3>
-    </div>
-
-    <div class="jumbotron">
-        <h1>Jumbotron heading</h1>
-
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus
-            commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-    </div>
-
-    <div class="row marketing">
-        <div class="col-lg-6">
-            <h4>Subheading</h4>
-
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-            <h4>Subheading</h4>
-
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet
-                fermentum.</p>
-
-            <h4>Subheading</h4>
-
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 header-title">
+                GO Grid
+            </div>
         </div>
-
-        <div class="col-lg-6">
-            <h4>Subheading</h4>
-
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-            <h4>Subheading</h4>
-
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet
-                fermentum.</p>
-
-            <h4>Subheading</h4>
-
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-    </div>
-
-    <div class="footer">
-        <p>&copy; Company 2014</p>
     </div>
 
 </div>
-<!-- /container -->
+
+<div class="text-center description-box">
+    <h1>go.grid</h1>
+
+    <h3>Angular directive - turning data into scrollable, filterable, sortable data grid</h3>
+
+    <p>
+
+        After taking so much from open source community I decided to give something from me
+
+    </p>
+
+    <div class="text-center">
+
+        <div class="btn-group">
+
+            <a class="btn btn-primary" href="https://github.com/gooor/go.grid"><span
+                    class="fa fa-github"></span>
+                Code on Github</a>
+            <a class="btn btn-default" href="https://github.com/gooor/go.grid/tree/master/build"><span
+                    class="fa fa-download"></span> Download
+                latest builds</a>
+
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <h4>Example</h4>
+
+            <div>
+
+                Sample data with 100 rows
+                <ul>
+                    <li>Filtering
+                        <p>
+                            Input field translated to regexp<br/>
+                            Usage:<br/>
+                        <ul>
+                            <li><em>word1|word2</em> - finds row containing word1 or word2</li>
+                            <li><em>word1&word2</em> - finds row containing word1 and word2 as well</li>
+                            <li>JS Regular expression should work fine</li>
+                        </ul>
 
 
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+                        </p>
+                    </li>
+                    <li>Sorting</li>
+                    <li>Column reordering</li>
+                    <li>Column visibilitiy toggle</li>
+
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-md-9" style="height: 400px; position: relative;">
+            <div style="position: absolute; top: 20px; left: 20px; right: 20px; bottom: 20px; ">
+                <div go-grid data-source="items" infinite on-select="select()" name="demo">
+
+                    <filters>
+                        <search-filter fields="field1,field2,field3,field4,field5,field6,field7,field9" name="query"></search-filter>
+                    </filters>
+
+                    <columns>
+                        <checkbox-column width="40" field="selected"></checkbox-column>
+                        <column width="40" name="id" header="ID" sort resize right>
+                            <a ng-href="#/{{item.id}}" class="office-thumbail">{{ item.id }}</a>
+                        </column>
+                        <column width="120" name="field1" header="Field 1" sort resize>
+                            <strong>{{ item.field1 }} {{ item.field2 }}</strong>
+                        </column>
+                        <column width="120" name="field2" header="Field 2" sort resize>
+                            <span class="label label-info">{{item.field6}}</span>
+                        </column>
+                        <column width="120" name="field3" header="Field 3" sort resize></column>
+                        <column width="120" name="field4" header="Field 4" sort resize></column>
+                        <column width="120" name="field5" header="Field 5" sort resize></column>
+                        <column width="120" name="field6" header="Field 6" sort resize></column>
+                        <column width="120" name="field9" header="Field 7" sort resize right></column>
+                        <column width="120" name="field7" header="Field 8" sort resize></column>
+                        <column width="120" name="field12" header="Field 11" sort resize></column>
+
+                    </columns>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-init="view = 'html'">
+        <div class="col-md-12">
+            <div class="btn-group">
+                <div class="btn btn-default" ng-class="{'btn-primary': view == 'html'}" ng-click="view = 'html'">HTML</div>
+                <div class="btn btn-default" ng-class="{'btn-primary': view == 'js'}" ng-click="view = 'js'">JS</div>
+            </div>
+            <p></p>
+        </div>
+        <div class="col-md-12">
+            <pre ng-if="view == 'html'">
+                <code class="html">
+                &lt;div go-grid data-source=&quot;items&quot; infinite on-select=&quot;select()&quot; name=&quot;demo&quot;&gt;<br/><br/>                    &lt;filters&gt;<br/>                        &lt;search-filter fields=&quot;field1,field2,field3,field4,field5,field6,field7,field9&quot; name=&quot;query&quot;&gt;&lt;/search-filter&gt;<br/>                    &lt;/filters&gt;<br/><br/>                    &lt;columns&gt;<br/>                        &lt;checkbox-column width=&quot;40&quot; field=&quot;selected&quot;&gt;&lt;/checkbox-column&gt;<br/>                        &lt;column width=&quot;40&quot; name=&quot;id&quot; header=&quot;ID&quot; sort resize right&gt;<br/>                            &lt;a ng-href=&quot;#/{{item.id}}&quot; class=&quot;office-thumbail&quot;&gt;{{ item.id }}&lt;/a&gt;<br/>                        &lt;/column&gt;<br/>                        &lt;column width=&quot;120&quot; name=&quot;field1&quot; header=&quot;Field 1&quot; sort resize&gt;<br/>                            &lt;strong&gt;{{ item.field1 }} {{ item.field2 }}&lt;/strong&gt;<br/>                        &lt;/column&gt;<br/>                        &lt;column width=&quot;120&quot; name=&quot;field2&quot; header=&quot;Field 2&quot; sort resize&gt;<br/>                            &lt;span class=&quot;label label-info&quot;&gt;{{item.field6}}&lt;/span&gt;<br/>                        &lt;/column&gt;<br/>                        &lt;column width=&quot;120&quot; name=&quot;field3&quot; header=&quot;Field 3&quot; sort resize&gt;&lt;/column&gt;<br/>                        &lt;column width=&quot;120&quot; name=&quot;field4&quot; header=&quot;Field 4&quot; sort resize&gt;&lt;/column&gt;<br/>                        &lt;column width=&quot;120&quot; name=&quot;field5&quot; header=&quot;Field 5&quot; sort resize&gt;&lt;/column&gt;<br/>                        &lt;column width=&quot;120&quot; name=&quot;field6&quot; header=&quot;Field 6&quot; sort resize&gt;&lt;/column&gt;<br/>                        &lt;column width=&quot;120&quot; name=&quot;field9&quot; header=&quot;Field 7&quot; sort resize right&gt;&lt;/column&gt;<br/>                        &lt;column width=&quot;120&quot; name=&quot;field7&quot; header=&quot;Field 8&quot; sort resize&gt;&lt;/column&gt;<br/>                        &lt;column width=&quot;120&quot; name=&quot;field12&quot; header=&quot;Field 11&quot; sort resize&gt;&lt;/column&gt;<br/><br/>                    &lt;/columns&gt;<br/>                &lt;/div&gt;
+                </code>
+            </pre>
+            <pre ng-if="view == 'js'">
+angular.module('sampleApp', ['go.grid'])<br/>    .controller('SampleController', ['$scope', function ($scope) {<br/>//        angular.module('go.grid').locale = 'pl'<br/>        $scope.select = function(item) {<br/>            for(var i = 0; i &lt; $scope.items.length; i++) {<br/>                delete $scope.items[i].active<br/>                if( $scope.items[i] === item) {<br/>                    item.active = true<br/>                }<br/>            }<br/>        }<br/><br/>        $scope.items = [<br/>        ];<br/>        var string = 'Ut a ipsum in justo varius pulvinar vitae non orci. Donec luctus ipsum eget ante dictum, sit amet tempus dolor tempus. Nunc eu condimentum elit. Sed placerat, nisl eget lacinia commodo, enim massa congue sem, non fringilla lorem tellus euismod nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut erat aliquam, efficitur urna sed, volutpat libero. Mauris non eleifend ex. Vivamus condimentum leo augue, eu finibus ligula luctus vel. Phasellus a odio non purus vehicula laoreet et in dui. Ut maximus venenatis neque eu venenatis. In blandit tellus et orci pharetra, eu tincidunt dolor pellentesque. Cras in elit ut nibh egestas dictum eget eget dui. Nullam porttitor, tellus eu bibendum sodales, nulla ante semper mi, quis molestie nunc augue sed quam. Pellentesque leo nisi, laoreet ac tortor in, sagittis molestie eros. Morbi velit augue, posuere quis neque vitae, condimentum consequat magna.'.split(' ');<br/><br/>        var l = string.length - 1;<br/><br/>        for (var i = 1; i &lt;= 100; i++) {<br/><br/>            i1 = Math.round(Math.random() * l)<br/>            i2 = Math.round(Math.random() * l)<br/>            i3 = Math.round(Math.random() * l)<br/>            i4 = Math.round(Math.random() * l)<br/>            i5 = Math.round(Math.random() * l)<br/>            i6 = Math.round(Math.random() * l)<br/>            i7 = Math.round(Math.random() * l)<br/>            i8 = Math.round(Math.random() * l)<br/>            i9 = Math.round(Math.random() * 100000) / 100<br/>            $scope.items.push({<br/>                id: i,<br/>                field1: string[i1],<br/>                field2: string[i2],<br/>                field3: string[i3],<br/>                field4: string[i4],<br/>                field5: string[i5],<br/>                field6: string[i6],<br/>                field7: string[i7],<br/>                field9: i9,<br/>            })<br/><br/><br/>        }<br/><br/>    }]);<br/><br/>
+            </pre>
+        </div>
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <h2>
+                TODO
+            </h2>
+            <ul>
+
+                <li>Include required libraries in single js file (concat). Including everything is pain ....</li>
+
+                <li>Many many things that I don't know or have no time :)</li>
+
+            </ul>
+        </div>
+
+    </div>
+    <div class="footer">
+
+        Marty 2014
+
+    </div>
+</div>
 </body>
 </html>
