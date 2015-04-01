@@ -1,4 +1,4 @@
-angular.module('sampleApp', ['go.grid'])
+angular.module('sampleApp', ['goGrid','angularLocalStorage'])
     .controller('SampleController', ['$scope', function ($scope) {
         $scope.select = function(item) {
             for(var i = 0; i < $scope.items.length; i++) {
@@ -40,6 +40,6 @@ angular.module('sampleApp', ['go.grid'])
 
 
         }
+        $scope.items.$resolved = true;
 
     }]);
-
