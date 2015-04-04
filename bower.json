@@ -1,0 +1,19 @@
+{
+  "name": "gooor.github.io",
+  "version": "1.0.0",
+  "homepage": "https://github.com/gooor/gooor.github.io",
+  "authors": [
+    "gooor <marcin.gorczynski@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "go.grid": "*"
+  }
+}
